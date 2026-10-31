@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bhargav Vakkapatla – Azure Cloud Engineer</title>
+<meta name="description" content="Azure cloud engineer: landing zones, Terraform, AKS, DevOps pipelines and Azure AI services.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas class="bg-rain" aria-hidden="true"></canvas><div class="bg-scan" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="in">
+    <div class="brand"><span class="nm">Bhargav Vakkapatla</span><a class="wa" href="tel:+919491430492" aria-label="Call +91 94914 30492">+91 94914 30492</a></div>
+    <button class="tog" id="tog" type="button" aria-label="Switch colour theme">Light<span class="mode"> mode</span></button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+  </div>
+  <nav class="menu" id="site-menu" aria-label="Site sections"><div class="in"><ul class="menu-list" id="menuList"></ul></div></nav>
+  <div class="prog" id="prog"></div>
+</header>
+
+<main>
+<section class="hero" id="top"><div class="in">
+  <div class="hero-top">
+    <div>
+      <div class="role"><img class="avatar" src="images/bhargav.jpg" alt="Portrait of Bhargav Vakkapatla" width="56" height="56">Azure Cloud Engineer</div>
+      <h1 class="name" id="name">Bhargav<br>Vakkapatla</h1>
+    </div>
+    <div><p class="summary">Seven-plus years building Azure platforms that are governed from day one: landing zones, Terraform modules, AKS, DevOps pipelines and Azure AI services, with L3 support and root cause analysis behind them.</p><p class="cta"><a class="btn" href="resume/Bhargav_Vakkapatla_Resume.pdf" download>Download resume</a><a class="btn ghost" href="#contact">Contact me</a></p></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>7+</b><span>Years on Azure</span></div>
+    <div class="stat"><b>2</b><span>Microsoft certifications</span></div>
+    <div class="stat"><b>100+</b><span>P1 issues resolved</span></div>
+    <div class="stat"><b>3</b><span>Environments: Dev, Test, Prod</span></div>
+    <div class="stat"><b>3</b><span>Awards</span></div>
+  </div>
+  <div class="hero-grid">
+    <div style="min-width:0">
+      <div class="stage"><div class="stage-tag">Live topology · simulated traffic</div><canvas id="topo" role="img" aria-label="Animated Azure landing zone: eight environments connected through a central Azure Firewall, with packets allowed or dropped."></canvas>
+        <div class="legend"><span><i style="background:var(--accent)"></i>inspected</span><span><i style="background:var(--allow)"></i>allowed</span><span><i style="background:var(--deny)"></i>dropped</span></div></div>
+      <div class="chips-label">Pick a node to focus the traffic</div><div class="chips" id="topoChips"></div>
+    </div>
+    <div class="side">
+      <div class="panel"><h3>Selected node</h3><div class="node-title" id="nodeTitle">Firewall core</div><p class="node-text" id="nodeText">Every path crosses one inspection point. Select a node to see what I have run there and to bias the traffic toward it.</p></div>
+      <div class="panel"><h3>Traffic log · simulated</h3><ul class="log" id="log" aria-label="Simulated firewall traffic log"></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-in" data-tk="1"><span>Azure  /  Terraform  /  Bicep  /  Azure DevOps  /  AKS  /  Landing Zones  /  Azure AI Foundry  /  Azure OpenAI  /  Private Endpoints  /  Defender for Cloud  /  Site Recovery  /  </span><span>Azure  /  Terraform  /  Bicep  /  Azure DevOps  /  AKS  /  Landing Zones  /  Azure AI Foundry  /  Azure OpenAI  /  Private Endpoints  /  Defender for Cloud  /  Site Recovery  /  </span></div></div>
+
+<section class="sec feature" id="topologies"><div class="in">
+  <div class="sec-head"><div class="eyebrow">More live topologies</div><h2>Resilience and AI at work</h2><p class="lead">Three simulated models. Fail a zone and watch traffic route around it, approve or deny a VM start request by email, then pick a region and a language and watch a translation travel.</p></div>
+
+  <h3 class="tp-title">High availability across zones<small>Availability Zones · Load Balancer · Site Recovery</small></h3>
+  <div class="hero-grid" style="margin-top:0">
+    <div style="min-width:0">
+      <div class="stage"><div class="stage-tag">Live topology · simulated traffic</div><canvas id="haCanvas" role="img" aria-label="Animated diagram: a load balancer spreads requests across virtual machines in three Availability Zones, and routes around a zone that fails."></canvas>
+        <div class="legend"><span><i style="background:var(--accent)"></i>request</span><span><i style="background:var(--allow)"></i>routed</span><span><i style="background:var(--deny)"></i>failed probe</span></div></div>
+      <div class="chips-label">Pick a scenario</div><div class="chips" id="haChips"></div>
+    </div>
+    <div class="side">
+      <div class="panel"><h3>Zone status</h3><div class="node-title" id="haTitle"></div><p class="node-text" id="haText"></p><p class="stat-line" id="haStat"></p></div>
+      <div class="panel"><h3>Load balancer log · simulated</h3><ul class="log" id="haLog" aria-label="Simulated load balancer log"></ul></div>
+    </div>
+  </div>
+
+  <h3 class="tp-title" style="margin-top:64px">Email approval to start a VM<small>Logic Apps · Approve or Deny by email · no portal login</small></h3>
+  <div class="hero-grid" style="margin-top:0">
+    <div style="min-width:0">
+      <div class="stage"><div class="stage-tag">Live topology · simulated flow</div><canvas id="emCanvas" role="img" aria-label="Animated diagram: a user emails a request to start a VM, the Logic App sends an approval email, and on Approve the VM starts and the requester is notified; on Deny the VM stays stopped."></canvas>
+        <div class="legend"><span><i style="background:var(--accent)"></i>email</span><span><i style="background:var(--allow)"></i>approved</span><span><i style="background:var(--deny)"></i>denied</span></div></div>
+      <div class="chips-label">Pick a decision</div><div class="chips" id="emChips"></div>
+    </div>
+    <div class="side">
+      <div class="panel how"><h3>How it works · click a step</h3><ol id="emSteps"></ol><p class="stat-line" id="emVm"></p></div>
+      <div class="panel"><h3>Run log · simulated</h3><ul class="log" id="emLog" aria-label="Simulated approval run log"></ul></div>
+    </div>
+  </div>
+
+  <h3 class="tp-title" style="margin-top:64px">Global AI translator<small>Azure AI Translator · global endpoint</small></h3>
+  <div class="hero-grid" style="margin-top:0">
+    <div style="min-width:0">
+      <div class="stage"><div class="stage-tag">Live topology · simulated traffic</div><canvas id="trCanvas" role="img" aria-label="Animated diagram: users in six countries send text to Azure AI Translator and receive it translated."></canvas>
+        <div class="legend"><span><i style="background:var(--accent)"></i>source text</span><span><i style="background:var(--allow)"></i>translated text</span></div></div>
+      <div class="chips-label">Pick a region</div><div class="chips" id="trSrcChips"></div>
+      <div class="chips-label">Translate to</div><div class="chips" id="trTgtChips"></div>
+    </div>
+    <div class="side">
+      <div class="panel"><h3>Translation</h3><div class="node-title" id="trTitle"></div><p class="tr-src" id="trSrc"></p><p class="tr-out" id="trOut"></p></div>
+      <div class="panel"><h3>Translator log · simulated</h3><ul class="log" id="trLog" aria-label="Simulated translation log"></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec feature" id="works"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Featured works</div><h2>Projects I delivered</h2><p class="lead">Selected projects from my roles, each with the outcome that mattered.</p></div>
+  <div class="works">
+    <article class="work"><div class="ctx">Tech Mahindra, Encora · 2022 to 2026</div><h3>P1 incident response</h3><p>L3 production support for business-critical Azure workloads: troubleshooting critical incidents, writing root cause analyses and keeping to SLA.</p><div class="big"><b>100+</b><span>P1 issues resolved</span></div><div class="tags"><span class="tag">L3 support</span><span class="tag">RCA</span><span class="tag">SLA</span><span class="tag">Azure Monitor</span></div></article>
+    <article class="work"><div class="ctx">Tech Mahindra, Encora · 2022 to 2026</div><h3>Subscription costing and optimisation</h3><p>Provided the costing for Azure subscriptions, then cut spend through rightsizing, tagging standards, Reserved Instances and scheduled VM start and stop.</p><div class="big"><b>Costed</b><span>every subscription</span></div><div class="tags"><span class="tag">Cost Management</span><span class="tag">Budgets</span><span class="tag">Reserved Instances</span><span class="tag">Tagging</span></div></article>
+    <article class="work"><div class="ctx">Encora · 2022 to 2025</div><h3>Azure Landing Zones</h3><p>Designed the subscription hierarchy, Management Groups, networking, Entra ID, RBAC, Azure Policy and Resource Locks that new workloads land in.</p><div class="big"><b>Governed</b><span>from the top down</span></div><div class="tags"><span class="tag">Management Groups</span><span class="tag">Azure Policy</span><span class="tag">RBAC</span><span class="tag">Resource Locks</span></div></article>
+    <article class="work"><div class="ctx">Encora · 2022 to 2025</div><h3>Terraform and pipelines</h3><p>Reusable Terraform modules with remote state, deployed by Azure DevOps YAML pipelines through Development, Test and Production.</p><div class="big"><b>3</b><span>environments, one codebase</span></div><div class="tags"><span class="tag">Terraform</span><span class="tag">Azure DevOps</span><span class="tag">YAML</span><span class="tag">Git</span></div></article>
+    <article class="work"><div class="ctx">Encora · 2022 to 2025</div><h3>AKS platform</h3><p>Clusters with Azure CNI, node pools, autoscaler and Kubernetes RBAC, with ACR connected through Managed Identity.</p><div class="big"><b>No secrets</b><span>for image pulls</span></div><div class="tags"><span class="tag">AKS</span><span class="tag">ACR</span><span class="tag">Entra ID</span><span class="tag">VMSS</span></div></article>
+    <article class="work"><div class="ctx">Azure AI</div><h3>Azure AI services</h3><p>Working with Azure AI Foundry, Azure OpenAI, Azure Translator and Azure AI Vision, kept behind private networking, Key Vault and Managed Identities.</p><div class="big"><b>Private</b><span>by default</span></div><div class="tags"><span class="tag">Azure AI Foundry</span><span class="tag">Azure OpenAI</span><span class="tag">Translator</span><span class="tag">AI Vision</span></div></article>
+    <article class="work"><div class="ctx">Encora · 2022 to 2025</div><h3>Logic Apps VM scheduler</h3><p>Scheduled VM start and stop to cut cost, plus an email-based flow: a user emails a request, the approver clicks Approve or Deny, and approved VMs start with a notification, all without portal access.</p><div class="big"><b>No portal</b><span>access needed</span></div><div class="tags"><span class="tag">Logic Apps</span><span class="tag">Cost</span><span class="tag">Automation</span></div></article>
+    <article class="work"><div class="ctx">Encora · 2022 to 2025</div><h3>High availability and DR</h3><p>Workloads across Availability Zones with Load Balancer and Traffic Manager, protected by Backup and Site Recovery to meet RPO/RTO targets.</p><div class="big"><b>Zone</b><span>resilient by design</span></div><div class="tags"><span class="tag">Site Recovery</span><span class="tag">Azure Backup</span><span class="tag">Traffic Manager</span></div></article>
+  </div>
+</div></section>
+
+<section class="sec feature" id="achievements"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Results</div><h2>Awards and credentials</h2><p class="lead">Recognition from three employers, the certifications behind the work, and the numbers.</p></div>
+  <div class="medals">
+    <div class="medal aw"><div class="yr">Encora</div><h3>Super Encorian Award</h3><div class="by">Awarded by Encora</div><p>Recognition for my work and contribution at Encora.</p></div>
+    <div class="medal aw"><div class="yr">Yash Technologies</div><h3>Rising Star Award</h3><div class="by">Awarded by Yash Technologies</div><p>Recognition for my early work at Yash Technologies.</p></div>
+    <div class="medal aw"><div class="yr">Sony India</div><h3>Spot Award</h3><div class="by">Awarded by Sony India Software Centre</div><p>Recognition for my work with Sony India Software Centre.</p></div>
+    <div class="medal"><div class="yr">AZ-104</div><h3>Azure Administrator Associate</h3><div class="by">Microsoft Certified</div><p>Core administration of Azure compute, storage, networking and identity.</p></div>
+    <div class="medal"><div class="yr">AZ-400</div><h3>DevOps Engineer Expert</h3><div class="by">Microsoft Certified</div><p>Designing and running DevOps pipelines, infrastructure as code and release strategy on Azure.</p></div>
+  </div>
+  <div class="metrics">
+    <div class="metric"><b><span class="cnt" data-to="7">7</span><em>+</em></b><span>Years on Azure</span></div>
+    <div class="metric"><b><span class="cnt" data-to="2">2</span></b><span>Microsoft certifications</span></div>
+    <div class="metric"><b><span class="cnt" data-to="100">100</span><em>+</em></b><span>P1 issues resolved</span></div>
+    <div class="metric"><b><span class="cnt" data-to="4">4</span></b><span>Employers</span></div>
+    <div class="metric"><b><span class="cnt" data-to="3">3</span></b><span>Environments automated</span></div>
+    <div class="metric"><b><span class="cnt" data-to="3">3</span></b><span>Awards</span></div>
+  </div>
+  <ul class="recog">
+    <li><b>L3 production support with root cause analysis and SLA compliance</b><span>Tech Mahindra, Encora</span></li>
+    <li><b>Reusable Terraform modules with remote state across Dev, Test and Prod</b><span>Encora</span></li>
+    <li><b>100+ P1 issues resolved with root cause analysis</b><span>Tech Mahindra, Encora</span></li>
+    <li><b>Provided subscription costing and cost optimisation</b><span>Tech Mahindra, Encora</span></li>
+    <li><b>Super Encorian Award</b><span>Encora</span></li>
+    <li><b>Rising Star Award</b><span>Yash Technologies</span></li>
+    <li><b>Spot Award</b><span>Sony India Software Centre</span></li>
+    <li><b>Monthly Windows Server and VM patching with rollback planning</b><span>Encora</span></li>
+    <li><b>Cost reduction through VM scheduling, rightsizing, tagging and Reserved Instances</b><span>Encora, Tech Mahindra</span></li>
+  </ul>
+</div></section>
+
+<section class="sec feature" id="skills"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Skill sets</div><h2>Platform, security and AI</h2><p class="lead">Three skill sets, kept separate: platform and automation, network and security, and Azure AI with operations.</p></div>
+  <div class="skills">
+    <article class="skillcard" style="--tone:var(--accent)"><h3>Platform and automation</h3><p class="sk-lead">Building Azure environments as code and shipping them through pipelines.</p>
+      <div class="sg"><h4>Infrastructure as code</h4><div class="tags"><span class="tag">Terraform</span><span class="tag">Bicep</span><span class="tag">ARM Templates</span><span class="tag">Azure CLI</span><span class="tag">PowerShell</span></div></div>
+      <div class="sg"><h4>CI/CD</h4><div class="tags"><span class="tag">Azure DevOps</span><span class="tag">YAML Pipelines</span><span class="tag">Git</span></div></div>
+      <div class="sg"><h4>Containers and compute</h4><div class="tags"><span class="tag">AKS</span><span class="tag">Docker</span><span class="tag">ACR</span><span class="tag">App Services</span><span class="tag">Azure Functions</span></div></div>
+      <div class="sg"><h4>Platform administration</h4><div class="tags"><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">Patch Management</span></div></div></article>
+    <article class="skillcard" style="--tone:var(--allow)"><h3>Network and security</h3><p class="sk-lead">Private connectivity, edge protection and least-privilege access.</p>
+      <div class="sg"><h4>Networking</h4><div class="tags"><span class="tag">VNets</span><span class="tag">NSGs</span><span class="tag">Azure Firewall</span><span class="tag">Application Gateway</span><span class="tag">WAF</span><span class="tag">Front Door</span><span class="tag">CDN</span><span class="tag">Load Balancer</span></div></div>
+      <div class="sg"><h4>Connectivity</h4><div class="tags"><span class="tag">Private Endpoints</span><span class="tag">Private DNS</span><span class="tag">VPN Gateway</span><span class="tag">ExpressRoute</span><span class="tag">Bastion</span></div></div>
+      <div class="sg"><h4>Identity and governance</h4><div class="tags"><span class="tag">Entra ID</span><span class="tag">RBAC</span><span class="tag">Azure Policy</span><span class="tag">Management Groups</span><span class="tag">Key Vault</span><span class="tag">Managed Identities</span><span class="tag">PIM</span></div></div>
+      <div class="sg"><h4>Security and compliance</h4><div class="tags"><span class="tag">Defender for Cloud</span><span class="tag">Secure Score</span><span class="tag">Microsoft Sentinel</span></div></div></article>
+    <article class="skillcard" style="--tone:var(--cond)"><span class="sk-badge">Azure AI</span><h3>AI and operations</h3><p class="sk-lead">Building on Azure’s AI services and keeping every workload observable and recoverable.</p>
+      <div class="sg"><h4>AI services</h4><div class="tags"><span class="tag">Azure AI Foundry</span><span class="tag">Azure OpenAI</span><span class="tag">Azure Translator</span><span class="tag">Azure AI Vision</span></div></div>
+      <div class="sg"><h4>Monitoring</h4><div class="tags"><span class="tag">Azure Monitor</span><span class="tag">Log Analytics</span><span class="tag">Application Insights</span><span class="tag">Azure Alerts</span><span class="tag">Service Health</span><span class="tag">Update Manager</span></div></div>
+      <div class="sg"><h4>Resilience</h4><div class="tags"><span class="tag">Azure Backup</span><span class="tag">Site Recovery</span><span class="tag">Recovery Services Vault</span></div></div>
+      <div class="sg"><h4>Cost</h4><div class="tags"><span class="tag">Cost Management</span><span class="tag">Budgets</span><span class="tag">Resource Tagging</span></div></div></article>
+  </div>
+</div></section>
+
+<section class="sec feature" id="cloudlab"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Cloud expertise</div><h2>How the features work</h2><p class="lead">Pick an area, pick a feature, and watch the traffic move. These are simplified models of features I have worked with on Azure.</p></div>
+  <div class="ctabs" id="ctabs" role="tablist" aria-label="Area"></div>
+  <div class="chips-label">Features</div><div class="chips" id="labChips"></div>
+  <div class="lab-title" id="labTitle"></div>
+  <div class="lab-grid">
+    <div class="stage"><canvas id="lab" role="img" aria-label="Animated diagram of the selected Azure feature"></canvas>
+      <div class="lg"><span><i style="background:var(--accent)"></i>control or setup</span><span><i style="background:var(--allow)"></i>allowed traffic</span><span><i style="background:var(--deny)"></i>blocked traffic</span></div></div>
+    <div class="panel how"><h3>How it works · click a step</h3><ol id="steps"></ol></div>
+  </div>
+</div></section>
+
+<section class="sec" id="route"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Career route</div><h2>Four hops, from support to platform</h2><p class="lead">Bars are drawn to scale from 2018 to 2026. Hop numbers count from my first role.</p></div>
+  <div class="gantt" id="gantt" role="img" aria-label="Timeline of four roles from 2018 to 2026"></div>
+  <div class="hops">
+    <article class="hop"><div class="hop-n" aria-hidden="true">04</div><div class="hop-body"><h3>Sr. Software Engineer</h3><div class="org">Tech Mahindra</div>
+      <ul><li>Ran secure, highly available Azure infrastructure, automated with Terraform, Azure DevOps and YAML pipelines.</li><li>Cut cloud cost through rightsizing, tagging and Reserved Instances, and gave L3 support with root cause analysis.</li></ul></div><div class="hop-dates">Sep 2025 – Jan 2026</div></article>
+    <article class="hop"><div class="hop-n" aria-hidden="true">03</div><div class="hop-body"><h3>Sr. Software Analyst</h3><div class="org">Encora</div>
+      <ul><li>Designed Azure Landing Zones and wrote reusable Terraform modules, deployed through Azure DevOps across three environments.</li><li>Administered AKS, Application Gateway with WAF, storage and networking, and improved Secure Score with Defender for Cloud.</li><li>Built availability-zone high availability plus Backup and Site Recovery, and automated VM scheduling with Logic Apps.</li><li>Planned monthly Windows Server and VM patching with validation, rollback plans and post-maintenance checks.</li></ul></div><div class="hop-dates">Sep 2022 – Sep 2025</div></article>
+    <article class="hop"><div class="hop-n" aria-hidden="true">02</div><div class="hop-body"><h3>Cloud Operations Engineering Analyst</h3><div class="org">Accenture</div>
+      <ul><li>Provisioned Azure VMs, storage and virtual networks for client production and non-production environments.</li><li>Administered Azure AD objects and RBAC, built Azure DevOps pipelines, and configured Firewall and NSG rules.</li><li>Set up Azure Backup to meet client RPO/RTO and automated routine administration with PowerShell.</li><li>Resolved Active Directory replication, DNS and Windows Server faults to keep servers online.</li></ul></div><div class="hop-dates">Oct 2021 – Sep 2022</div></article>
+    <article class="hop"><div class="hop-n" aria-hidden="true">01</div><div class="hop-body"><h3>Trainee</h3><div class="org">Yash Technologies</div>
+      <ul><li>Gave 24/7 support for Azure infrastructure and resolved critical incidents within SLA.</li><li>Configured VMs, storage, virtual networks and Availability Sets; hardened and patched Windows Server VMs.</li><li>Wrote SOPs and troubleshooting guides that made L1/L2 support more consistent.</li></ul></div><div class="hop-dates">Nov 2018 – Oct 2021</div></article>
+  </div>
+</div></section>
+
+<section class="sec" id="zones"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Landing zone model</div><h2>Zones and conduits</h2><p class="lead">Pick a source and a destination to see what a hub-and-spoke landing zone does with the traffic. This models the approach I use when designing Azure networks. It is not any client’s actual policy.</p></div>
+  <div class="mx-wrap">
+    <div style="min-width:0"><div class="mx" id="mx" role="group" aria-label="Zone to zone policy matrix"></div>
+      <div class="mx-key"><span><b style="color:var(--allow)">✓</b>Allow</span><span><b style="color:var(--cond)">IF</b>Allow with conditions</span><span><b style="color:var(--deny)">✕</b>Deny</span></div></div>
+    <div class="panel detail"><div class="lane"><span class="end" id="laneA"></span><div class="track" id="track"><i class="gate"></i><i class="pkt" id="pkt"></i></div><span class="end" id="laneB"></span></div>
+      <div class="verdict" id="verdict"></div><h4 id="pairTitle"></h4><p class="reason" id="reason"></p><div class="tags" id="ctl"></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="cloud"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Azure coverage</div><h2>One platform, every layer</h2><p class="lead">Hands-on across compute, networking, identity, data and operations, with the automation and governance toolbox around them.</p></div>
+  <div class="clouds">
+    <div class="cloud"><h3>Compute</h3><div class="sub">IaaS and PaaS</div><div class="tags"><span class="tag">Virtual Machines</span><span class="tag">VMSS</span><span class="tag">AKS</span><span class="tag">ACR</span><span class="tag">App Services</span><span class="tag">Functions</span><span class="tag">Logic Apps</span></div></div>
+    <div class="cloud"><h3>Network</h3><div class="sub">Edge to private link</div><div class="tags"><span class="tag">VNet</span><span class="tag">NSG</span><span class="tag">Azure Firewall</span><span class="tag">Application Gateway</span><span class="tag">WAF</span><span class="tag">Front Door</span><span class="tag">Traffic Manager</span><span class="tag">Private Endpoint</span><span class="tag">Private DNS</span><span class="tag">VPN Gateway</span><span class="tag">ExpressRoute</span><span class="tag">Bastion</span></div></div>
+    <div class="cloud"><h3>Identity</h3><div class="sub">Access and secrets</div><div class="tags"><span class="tag">Entra ID</span><span class="tag">RBAC</span><span class="tag">PIM</span><span class="tag">Managed Identities</span><span class="tag">Key Vault</span></div></div>
+    <div class="cloud"><h3>AI and data</h3><div class="sub">Azure AI services</div><div class="tags"><span class="tag">Azure AI Foundry</span><span class="tag">Azure OpenAI</span><span class="tag">Azure Translator</span><span class="tag">Azure AI Vision</span><span class="tag">Data Lake Storage</span><span class="tag">Blob and Files</span></div></div>
+  </div>
+  <div class="kit">
+    <div class="kit-row"><h4>Automation</h4><div class="tags"><span class="tag">Terraform</span><span class="tag">Bicep</span><span class="tag">ARM Templates</span><span class="tag">Azure CLI</span><span class="tag">PowerShell</span><span class="tag">Git</span></div></div>
+    <div class="kit-row"><h4>CI/CD</h4><div class="tags"><span class="tag">Azure DevOps</span><span class="tag">YAML Pipelines</span><span class="tag">Approval gates</span></div></div>
+    <div class="kit-row"><h4>Governance</h4><div class="tags"><span class="tag">Landing Zones</span><span class="tag">Management Groups</span><span class="tag">Azure Policy</span><span class="tag">Resource Locks</span><span class="tag">Tagging</span></div></div>
+    <div class="kit-row"><h4>Security</h4><div class="tags"><span class="tag">Defender for Cloud</span><span class="tag">Secure Score</span><span class="tag">Microsoft Sentinel</span></div></div>
+    <div class="kit-row"><h4>Monitoring</h4><div class="tags"><span class="tag">Azure Monitor</span><span class="tag">Log Analytics</span><span class="tag">Application Insights</span><span class="tag">Alerts</span><span class="tag">Service Health</span><span class="tag">Update Manager</span></div></div>
+    <div class="kit-row"><h4>Resilience</h4><div class="tags"><span class="tag">Availability Zones</span><span class="tag">Azure Backup</span><span class="tag">Site Recovery</span><span class="tag">Recovery Services Vault</span></div></div>
+    <div class="kit-row"><h4>Platform</h4><div class="tags"><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">DNS</span><span class="tag">Group Policy</span><span class="tag">Patch Management</span></div></div>
+    <div class="kit-row"><h4>Practice</h4><div class="tags"><span class="tag">L3 support</span><span class="tag">Root cause analysis</span><span class="tag">SLA management</span><span class="tag">Cost optimisation</span><span class="tag">Well-Architected Framework</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="docs"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Documentation</div><h2>Written down</h2><p class="lead">The runbooks, diagrams and standards I maintain so the next engineer starts from an answer.</p></div>
+  <ul class="doc-list">
+    <li><b>Architecture documentation and deployment diagrams</b><span>For Azure environments built to the Well-Architected Framework.</span></li>
+    <li><b>Terraform module documentation</b><span>Reusable modules with remote state, used across three environments.</span></li>
+    <li><b>Operational runbooks and SOPs</b><span>Patching, incident handling and routine administration.</span></li>
+    <li><b>Root cause analyses</b><span>Written for critical incidents to meet SLA and prevent repeats.</span></li>
+    <li><b>Troubleshooting guides</b><span>For L1 and L2 support, so common faults are resolved consistently.</span></li>
+  </ul>
+</div></section>
+
+<section class="sec" id="creds"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Certifications</div><h2>Certified</h2></div>
+  <div class="creds">
+    <div class="cred"><b>AZ-104</b><span>Microsoft Azure Administrator Associate</span></div>
+    <div class="cred"><b>AZ-400</b><span>Microsoft DevOps Engineer Expert</span></div>
+  </div>
+  <div class="sub-h">Education</div>
+  <div class="edu"><div><b>B.Tech</b><span>Jawaharlal Nehru Technological University (JNTU) · 2017</span></div><div><b>Languages</b><span>English, Telugu, Hindi</span></div></div>
+</div></section>
+
+<div class="ticker alt" aria-hidden="true"><div class="ticker-in" data-tk="-1"><span>Azure  /  Terraform  /  Bicep  /  Azure DevOps  /  AKS  /  Landing Zones  /  Azure AI Foundry  /  Azure OpenAI  /  Private Endpoints  /  Defender for Cloud  /  Site Recovery  /  </span><span>Azure  /  Terraform  /  Bicep  /  Azure DevOps  /  AKS  /  Landing Zones  /  Azure AI Foundry  /  Azure OpenAI  /  Private Endpoints  /  Defender for Cloud  /  Site Recovery  /  </span></div></div>
+
+<section class="sec" id="contact"><div class="in">
+  <div class="sec-head"><div class="eyebrow">Contact</div><h2>Get in touch</h2><p class="lead">Reach me directly about Azure platform, DevOps or Azure AI work.</p></div>
+  <div class="crow"><span class="lbl">Email</span><span class="val">bhargav.vb9@gmail.com</span><button type="button" class="copy">Copy</button></div>
+  <div class="crow"><span class="lbl">Resume</span><span class="val">Bhargav_Vakkapatla_Resume.pdf</span><a class="btn" href="resume/Bhargav_Vakkapatla_Resume.pdf" download>Download</a></div>
+  <div class="crow"><span class="lbl">Phone</span><span class="val">+91 94914 30492</span><button type="button" class="copy">Copy</button></div>
+</div></section>
+</main>
+
+<footer><div class="in"><div class="tb">
+  <div><small>Drawn by</small><b>Bhargav Vakkapatla</b></div><div><small>Discipline</small><b>Azure cloud engineering</b></div><div><small>Revision</small><b>October 2026</b></div>
+</div></div></footer>
+<script src="app.js"></script>
+</body>
+</html>
